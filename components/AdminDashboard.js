@@ -3,9 +3,8 @@ import { createClient } from "@supabase/supabase-js";
 import { format, subDays, startOfDay, endOfDay } from "date-fns";
 
 // Initialize Supabase client
-const supabaseUrl = "https://dbzfjoonimkbrsajtkwf.supabase.co";
-const supabaseKey =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRiemZqb29uaW1rYnJzYWp0a3dmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NDg2MTM5NCwiZXhwIjoyMDgwNDM3Mzk0fQ.h49v9LU_RCDgUREVkjL7lX4XqB0abCW6ytiZLM43zmw";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const AdminDashboard = () => {
@@ -365,8 +364,8 @@ const AdminDashboard = () => {
                         <button
                             key={item.id}
                             className={`w-full flex items-center space-x-4 px-5 py-4 rounded-xl transition-all duration-200 ${activeTab === item.id
-                                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105"
-                                    : "text-gray-400 hover:bg-gray-700 hover:text-white hover:shadow-md"
+                                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105"
+                                : "text-gray-400 hover:bg-gray-700 hover:text-white hover:shadow-md"
                                 }`}
                             onClick={() => setActiveTab(item.id)}
                         >
@@ -968,8 +967,8 @@ const AdminDashboard = () => {
                 <div className="bg-gray-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
                     <div
                         className={`bg-gradient-to-r px-8 py-6 ${isBooking
-                                ? "from-blue-600 to-purple-600"
-                                : "from-orange-600 to-red-600"
+                            ? "from-blue-600 to-purple-600"
+                            : "from-orange-600 to-red-600"
                             }`}
                     >
                         <div className="flex justify-between items-center">

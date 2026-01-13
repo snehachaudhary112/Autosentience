@@ -1,11 +1,11 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Hardcoded for debugging
-const supabaseUrl = 'https://dbzfjoonimkbrsajtkwf.supabase.co';
-const supabaseServiceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRiemZqb29uaW1rYnJzYWp0a3dmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NDg2MTM5NCwiZXhwIjoyMDgwNDM3Mzk0fQ.h49v9LU_RCDgUREVkjL7lX4XqB0abCW6ytiZLM43zmw';
+// Use environment variables for Supabase configuration
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 if (!supabaseUrl || !supabaseServiceKey) {
-    throw new Error('Missing Supabase environment variables for server');
+    throw new Error('Missing Supabase environment variables for server: NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
 }
 
 console.log('Initializing Supabase Admin with URL:', supabaseUrl);
